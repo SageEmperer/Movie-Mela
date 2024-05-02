@@ -1,0 +1,14 @@
+<div class="poster-box-container row">
+  <div class="poster-box col-md-4" *ngFor="let image of movieBackdropsImages">
+    <div class="poster-image-div">
+      <img
+        [src]="['https://image.tmdb.org/t/p/w500/' + image.file_path]"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,46 @@
+input{
+  max-width: 400px;
+} 
+.navbar{
+  background-color: #7bd4ea91;
+  /* border-bottom: 1px solid gray; */
+  box-shadow: 0px 2px 15px rgba(128, 128, 128, 0.603);
+}
+.activated{
+  color: #11235A;
+  font-weight: 700;
+}
+
+
+.toggle{
+  color: #B80000;
+  transition: color .5s;
+}
+.navbar-brand{
+  font-weight: 700;
+  cursor: pointer;
+}  
+
+.toggleback{
+  background-color: #E26EE5;
+  transition: background-color .5s;
+}
+button{
+  background-color: #11235A;
+  color: white;
+}
+.buttonToggle{
+  background-color: #B80000;
+}
+#home{
+  color: #EF4040;
+  font-weight: 700;
+}
+.burger{
+  color: white;
+  background-color: #96EFFF;
+}
+.burgerToggle{
+  background-color: #ef4040a1;
+}
+  

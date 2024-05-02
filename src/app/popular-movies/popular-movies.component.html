@@ -1,0 +1,21 @@
+<h1>Popular Movies</h1>
+<br />
+
+<div class="my-container">
+  <div class="box" *ngFor="let popularMovie of popularMovies">
+    <div class="movie-image">
+      <img
+        [src]="['https://image.tmdb.org/t/p/w500/' + popularMovie.poster_path]"
+        alt="{{ popularMovie.title }}"
+        (click)="navigateToDetails(popularMovie.id)"
+      />
+      <div class="rating">
+        {{ popularMovie.vote_average | number : "1.1-1" }}
+      </div>
+    </div>
+    <div class="movie-content">
+      <div class="movie-title">{{ popularMovie.original_title }}</div>
+      <div class="movie-release-day">{{ popularMovie.release_date }}</div>
+    </div>
+  </div>
+</div>

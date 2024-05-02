@@ -1,0 +1,7 @@
+a{
+ transition: font-size .5s; 
+}
+a:hover{
+  font-size: 1.5rem;
+}
+  

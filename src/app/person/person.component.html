@@ -1,0 +1,56 @@
+<div class="container">
+  <br />
+  <h1>Actor Information</h1>
+  <hr />
+  <br />
+  <div class="text-center" *ngIf="!actorDetails.profile_path">
+    <h2>Some Information and Image not Found</h2>
+  </div>
+
+  <div class="row" *ngIf="actorDetails || actorDetails.profile_path !== null">
+    <div class="col-md-4">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500/' + actorDetails.profile_path"
+        alt=""
+        width="100%"
+      />
+    </div>
+
+    <div class="col-md-8">
+      <div class="actor-name"><span>Name: </span>{{ actorDetails.name }}</div>
+      <div class="known-as">
+        <span>Also Known As: </span>
+        <span *ngFor="let name of actorDetails.also_known_as"
+          >{{ name }},
+        </span>
+      </div>
+      <div class="actor-biography">
+        <span>Biography: </span>
+        <p>{{ actorDetails.biography }}</p>
+      </div>
+      <div class="actor-birthday">
+        <span>Birth Day: </span>{{ actorDetails.birthday }}
+      </div>
+      <div class="birth-place">
+        <span>Birth Place: </span>{{ actorDetails.place_of_birth }}
+      </div>
+      <div class="actor-deathday" *ngIf="actorDetails.deathday">
+        <span>Death: </span>{{ actorDetails.deathday }}
+      </div>
+
+      <div class="actor-gender">
+        <span>Gender: </span>{{ getGenderLabel(actorDetails.gender) }}
+      </div>
+      <div class="department">
+        <span>Profession: </span>{{ actorDetails.known_for_department }}
+      </div>
+      <div class="popularity">
+        <span>Popularity: </span
+        >{{ actorDetails.popularity | number : "1.1-1" }}
+      </div>
+      <div class="actor-imdb-id">
+        <span>Imdb Id: </span>{{ actorDetails.imdb_id }}
+      </div>
+    </div>
+  </div>
+</div>

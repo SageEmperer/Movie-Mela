@@ -1,0 +1,111 @@
+<br />
+<h1>Now Playing</h1>
+<br />
+
+<div class="my-container">
+  <div class="box" *ngFor="let newMovie of nowPlayingMovies">
+    <div class="movie-image">
+      <img
+        [src]="['https://image.tmdb.org/t/p/w500/' + newMovie.poster_path]"
+        alt="{{ newMovie.title }}"
+        routerLink="/details/{{ newMovie.id }}"
+      />
+      <div class="rating">{{ newMovie.vote_average | number : "1.1-1" }}</div>
+    </div>
+    <div class="movie-content">
+      <div class="movie-title">{{ newMovie.title }}</div>
+      <div class="movie-release-day">{{ newMovie.release_date }}</div>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <br />
+  <button class="btn btn-warning" routerLink="newRelease">view all</button>
+</div>
+<br />
+<hr />
+<h1>Top Rated</h1>
+<br />
+
+<div class="my-container">
+  <div class="box" *ngFor="let topMovie of topRatedMovies">
+    <div class="movie-image">
+      <img
+        [src]="['https://image.tmdb.org/t/p/w500/' + topMovie.poster_path]"
+        alt="{{ topMovie.title }}"
+        routerLink="details/{{ topMovie.id }}"
+      />
+      <div class="rating">{{ topMovie.vote_average | number : "1.1-1" }}</div>
+    </div>
+    <div class="movie-content">
+      <div class="movie-title">{{ topMovie.title }}</div>
+      <div class="movie-release-day">{{ topMovie.release_date }}</div>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <br />
+  <button class="btn btn-warning" routerLink="topRated">view all</button>
+</div>
+<br />
+<hr />
+<h1>Popular</h1>
+<br />
+
+<div class="my-container">
+  <div class="box" *ngFor="let popularMovie of popularMovies">
+    <div class="movie-image">
+      <img
+        [src]="['https://image.tmdb.org/t/p/w500/' + popularMovie.poster_path]"
+        alt="{{ popularMovie.title }}"
+        routerLink="details/{{ popularMovie.id }}"
+      />
+      <div class="rating">
+        {{ popularMovie.vote_average | number : "1.1-1" }}
+      </div>
+    </div>
+    <div class="movie-content">
+      <div class="movie-title">{{ popularMovie.title }}</div>
+      <div class="movie-release-day">{{ popularMovie.release_date }}</div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="text-center">
+  <br />
+  <button class="btn btn-warning" routerLink="popular">view all</button>
+</div>
+<br />
+<br />
+<hr />
+<h1>Upcomming</h1>
+
+<div class="my-container">
+  <div class="box" *ngFor="let upcommingMovie of upCommingMovies">
+    <div class="movie-image">
+      <img
+        [src]="[
+          'https://image.tmdb.org/t/p/w500/' + upcommingMovie.poster_path
+        ]"
+        alt="{{ upcommingMovie.title }}"
+        routerLink="details/{{ upcommingMovie.id }}"
+      />
+      <div class="rating">
+        {{ upcommingMovie.vote_average | number : "1.1-1" }}
+      </div>
+    </div>
+    <div class="movie-content">
+      <div class="movie-title">{{ upcommingMovie.title }}</div>
+      <div class="movie-release-day">{{ upcommingMovie.release_date }}</div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<div class="text-center">
+  <br />
+  <button class="btn btn-warning" routerLink="upcomming">view all</button>
+</div>
+<br />
+
+<!-- <app-up-comming></app-up-comming> -->

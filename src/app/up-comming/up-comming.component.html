@@ -1,0 +1,24 @@
+<br />
+<h1>Upcomming</h1>
+<br />
+
+<div class="my-container text-center">
+  <div *ngFor="let movie of UpcommingMovies">
+    <div class="box">
+      <div class="image-div">
+        <img
+          [src]="['https://image.tmdb.org/t/p/w500/' + movie.poster_path]"
+          (click)="navigate(movie.id)"
+        />
+        <div class="rate">{{ movie.vote_average | number : "1.1-1" }}</div>
+      </div>
+      <div class="content-div">
+        <div class="movie-title">{{ movie.title }}</div>
+        <div class="movie-date">{{ movie.release_date }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <button class="btn btn-warn">load more</button>
+</div>

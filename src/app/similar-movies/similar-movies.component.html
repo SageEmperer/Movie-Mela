@@ -1,0 +1,20 @@
+<div class="similar-movies-container">
+  <div class="similar-movie-div row">
+    <div class="col-md-4" *ngFor="let movie of MovieSimiler">
+      <div class="condition">
+        <div class="similar-movie-image-div">
+          <img
+            [src]="['https://image.tmdb.org/t/p/w500/' + movie.poster_path]"
+            width="100%"
+            alt=""
+            (click)="navigate()"
+          />
+        </div>
+        <div class="similar-movie-detail-div">
+          <div class="movie-title">{{ movie.title }}</div>
+          <div class="movie-release-date">{{ movie.release_date }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

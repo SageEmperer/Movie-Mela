@@ -1,0 +1,15 @@
+.similar-movie-div{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -ms-overflow-style:none;
+  scrollbar-width: none;
+}
+.similar-movie-div::-webkit-scrollbar{
+  display: none;
+}
+.col-md-4{
+  width: 200px;
+  height: 100%;
+  margin-right: 10px;
+}

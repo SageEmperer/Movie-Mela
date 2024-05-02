@@ -1,0 +1,21 @@
+<h1>New Relase</h1>
+<br />
+<div class="my-container">
+  <div class="box" *ngFor="let nowMovie of NowPlaying">
+    <div class="movie-image">
+      <img
+        [src]="['https://image.tmdb.org/t/p/w500/' + nowMovie.poster_path]"
+        alt="{{ nowMovie.title }}"
+        (click)="naviGatingToDetails(nowMovie.id)"
+      />
+      <div class="rating">{{ nowMovie.vote_average | number : "1.1-1" }}</div>
+    </div>
+    <div class="movie-content">
+      <div class="movie-title">{{ nowMovie.original_title }}</div>
+      <div class="movie-release-day">{{ nowMovie.release_date }}</div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />

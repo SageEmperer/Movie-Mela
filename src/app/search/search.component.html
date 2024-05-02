@@ -1,0 +1,30 @@
+<br />
+<h1>Search Results</h1>
+<br />
+
+<div class="container">
+  <div class="row">
+    <h2 *ngIf="searchedMovies.total_results == 0" class="text-center">
+      Not Found
+    </h2>
+    <ng-container *ngFor="let movie of searchedMovies.results">
+      <div class="col-md-3 mb-3" *ngIf="movie.poster_path">
+        <div class="search-movie-box">
+          <div class="search-movie-image-div">
+            <img
+              [src]="['https://image.tmdb.org/t/p/w500/' + movie.poster_path]"
+              alt=""
+              (click)="navigateDetails(movie.id)"
+            />
+          </div>
+          <div class="search-movie-content">
+            <div class="search-movie-title">{{ movie.title }}</div>
+            <div class="search-movie-release-date">
+              {{ movie.release_date }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

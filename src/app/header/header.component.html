@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg" [class.toggleback]="isHighlighted">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="toggleing()" [class.toggle]="isHighlighted"
+      >Azaruddin</a
+    >
+    <button
+      class="navbar-toggler burger"
+      type="button"
+      [class.burgerToggle]="isHighlighted"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="home"
+            aria-current="page"
+            routerLink="/"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/newRelease"
+            routerLinkActive="activated"
+            >New Movies</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            routerLinkActive="activated"
+            aria-current="page"
+            routerLink="/topRated"
+            >Top Movies</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLinkActive="activated"
+            routerLink="/popular"
+            >Popular Movies</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLinkActive="activated"
+            routerLink="/upcomming"
+            >Upcomming Movies</a
+          >
+        </li>
+      </ul>
+
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="search()"
+      />
+      <button
+        class="btn btn-outline-success"
+        [class.buttonToggle]="isHighlighted"
+        (click)="search()"
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</nav>

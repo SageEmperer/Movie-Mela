@@ -1,0 +1,19 @@
+<h1>Movie Videos</h1>
+<br />
+<br />
+<div class="my-movie-video-continer row text-center">
+  <div class="my-movie-box col-md-5" *ngFor="let video of movieVideos">
+    <iframe
+      width="100%"
+      height="80%"
+      [src]="getSafeUrl(video.key)"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+
+    <div class="video-title">
+      {{ video.name }}
+    </div>
+    <div class="video-type">{{ video.type }}</div>
+  </div>
+</div>

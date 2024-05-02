@@ -1,0 +1,233 @@
+<div
+  class="my-container row"
+  [style.backgroundImage]="
+    'url(https://image.tmdb.org/t/p/w500/' + movieDetail.backdrop_path + ')'
+  "
+>
+  <div class="movie-image-div col-md-4">
+    <img
+      [src]="['https://image.tmdb.org/t/p/w500/' + movieDetail.poster_path]"
+      alt=""
+      id="poster"
+    />
+  </div>
+  <div class="movie-details-div col-md-8">
+    <div class="movie-title">{{ movieDetail.title }}</div>
+    <div class="movie-release-date-genre-time">
+      <span> Release Date: </span>{{ movieDetail.release_date }}.
+      <div>
+        <span> Genres: </span>
+        <span class="gen" *ngFor="let gen of movieDetail.genres"
+          >{{ gen.name }},
+        </span>
+      </div>
+      {{ movieDetail.runtime }} runTime
+    </div>
+    <div class="movie-rating">
+      <span> Rating: </span>{{ movieDetail.vote_average | number : "1.1-1" }}
+    </div>
+    <div class="movie-trailer-button">
+      <button
+        class="btn btn-warn"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <i class="fa-solid fa-film"></i>
+        Trailer
+      </button>
+    </div>
+    <div class="movie-tag-line">
+      <span>Tag Line: </span>{{ movieDetail.tagline }}
+    </div>
+    <div class="movie-overview">
+      <span>Overview: </span>{{ movieDetail.overview }}
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+
+<!-- KP48bPjJht1WV4Xm -->
+<br />
+<br />
+<br />
+<hr />
+<div class="row">
+  <div class="col-md-9">
+    <h2>Top Cast</h2>
+    <br />
+
+    <div class="cast-div">
+      <div class="cast" *ngFor="let cast of movieCasts">
+        <div class="cast-image">
+          <img
+            [src]="
+              cast.profile_path
+                ? 'https://image.tmdb.org/t/p/w500/' + cast.profile_path
+                : 'assets/profile.jpg'
+            "
+            [routerLink]="['/actor/', cast.id]"
+            alt="{{ cast.name }}"
+          />
+        </div>
+        <div class="cast-detail">
+          <h5>{{ cast.name }}</h5>
+          <p>{{ cast.character }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <br />
+    <br />
+    <ul>
+      <li>
+        <b>Status</b>
+        <br />
+        <p>{{ movieDetail.status }}</p>
+      </li>
+      <li>
+        <b>Original Language</b>
+        <br />
+        <p>{{ movieDetail.original_language }}</p>
+      </li>
+      <li>
+        <b>Production Country</b>
+        <br />
+        <p>{{ movieDetail.production_countries[0].name }}</p>
+      </li>
+      <li>
+        <b>Budget</b>
+        <br />
+        <p>{{ movieDetail.budget | currency }}</p>
+      </li>
+      <li>
+        <b>Revenue</b>
+        <br />
+        <p>{{ movieDetail.revenue | currency }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
+<br />
+<br />
+<hr />
+<h2>Movies Images</h2>
+<br />
+<br />
+
+<div class="poster-container">
+  <app-posters></app-posters>
+</div>
+<hr />
+<h2>Movie Videos</h2>
+<br />
+<br />
+<div class="movie-video-container">
+  <!-- <app-movie-videos></app-movie-videos> -->
+  <div class="container">
+    <div class="my-movie-trailer">
+      <div class="trailer-box" *ngFor="let video of movieVideoslol">
+        <!-- trailer here -->
+        <div class="video-box">
+          <iframe
+            width="100%"
+            height="300px"
+            [src]="getSafeUrl(video.key)"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="text-center">
+    <button class="btn btn-warning" (cilick)="navigatToVideos()">
+      View All
+    </button>
+  </div>
+  <br />
+
+  <!-- movie container end here -->
+</div>
+<br />
+<br />
+<hr />
+<br />
+<div class="movie-review-container">
+  <app-review></app-review>
+</div>
+<br />
+<br />
+<hr />
+<h2>Similar Movies</h2>
+<br />
+<br />
+<div class="similar-movies-container">
+  <div class="similar-movie-div row">
+    <div class="col-md-4" *ngFor="let movie of MovieSimiler">
+      <div class="condition">
+        <div class="similar-movie-image-div">
+          <img
+            [src]="['https://image.tmdb.org/t/p/w500/' + movie.poster_path]"
+            width="100%"
+            alt=""
+            (click)="navigate(movie.id)"
+          />
+        </div>
+        <div class="similar-movie-detail-div">
+          <div class="movie-title">{{ movie.title }}</div>
+          <div class="movie-release-date">{{ movie.release_date }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <app-similar-movies [similarMovies]="similarMovies"></app-similar-movies> -->
+<!-- <app-similar-movies></app-similar-movies> -->
+
+<!-- modal here -->
+
+<!-- Button trigger modal -->
+<!-- <button
+  type="button"
+  class="btn btn-primary"
+  
+>
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ movieVideoslol[0].name }}
+        </h1>
+      </div>
+      <div class="modal-body">
+        <iframe
+          width="100%"
+          height="315"
+          [src]="getSafeUrl(movieVideoslol[0].key)"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

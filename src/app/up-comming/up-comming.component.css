@@ -1,0 +1,56 @@
+
+
+.image-div{
+  width: 100%;
+}
+.image-div img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.box{
+  width: 200px;
+  border-radius: 10px;
+  margin: 10px;
+  overflow: hidden;
+  background-color: #5fbcffa6;
+  transition: transform .5s,box-shadow .5s;
+  box-shadow: 4px 4px 8px gray;
+  
+}
+.box:hover{
+  transform: scale(110%);
+  box-shadow: 4px 4px 8px black;
+}
+.content-div{
+  padding: .8rem;
+}
+.movie-title{
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+.movie-date{
+  font-weight: 500;
+  color: gray;
+}
+.image-div{
+  position: relative;
+
+}
+.rate{
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  color: white;
+  padding: .5rem  .6rem;
+  border-radius: 10px;
+  background-color: #19191996;
+  border: 1px solid white;
+  border-bottom: 3px solid #B80000;
+  border-left: 3px solid #B80000;
+}
+.my-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

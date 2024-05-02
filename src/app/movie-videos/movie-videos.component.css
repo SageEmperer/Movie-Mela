@@ -1,0 +1,17 @@
+
+.my-movie-box{
+  height: 400px;
+  background-color: #4CB9E7;
+  margin: 10px;
+  border-radius: 10px;
+  padding-top: 10px;
+}
+.video-title{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.video-type{
+  font-weight: 500;
+}
+
+  

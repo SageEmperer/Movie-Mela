@@ -1,0 +1,25 @@
+.search-movie-image-div img{
+  width: 100%;
+  min-height: 200px;
+  border-radius: 10px;
+  
+}
+
+.search-movie-title{
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.search-movie-release-date{
+  color:gray;
+}
+.search-movie-box{
+  background-color: #8ACDD7;
+  border-radius: 10px;
+  transition: transform .5s;
+}
+.search-movie-box:hover{
+  transform: scale(110%);
+}
+.search-movie-content{
+  padding: 1rem;
+}
